@@ -12,10 +12,12 @@ const InstagramBlock = () => {
      
     useEffect(() => {
         const fetchPosts = async () => {
-            const response = await InstagramApi.getAll();
-            setPosts(response);     
-        };     
-      fetchPosts();
+            try {
+                const response = await InstagramApi.getAll();
+                setPosts(response);
+            } catch (error) {}
+        };
+        fetchPosts();
     }, []);
 
     const windowSize = useWindowSize();
