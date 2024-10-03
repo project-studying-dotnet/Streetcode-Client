@@ -11,29 +11,33 @@ const keywordColoring = {
 };
 
 const SearchTerms = ({ mainText }: Props) => {
-    const splittedKeywordText = mainText.split(/(<Popover>.*?<\/Popover>)/g);
+    let splittedKeywordText;
+    try {
+        splittedKeywordText = mainText.split(/(<Popover>.*?<\/Popover>)/g);
+    } catch (error) {
+    }
+    const popoverParser = (input: string) => {
 
-    console.log(splittedKeywordText);
-
-    const popoverParser = (input: string) => parse(input, {
-        // eslint-disable-next-line react/no-unstable-nested-components
-        replace: () => (
-            <Popover
-                key={input.match(/<Term>.*?<\/Term>/g)?.at(0)?.toString()}
-                style={keywordColoring}
-                overlayStyle={{ width: '300px' }}
-                content={parse(input.match(/<Desc>.*?<\/Desc>/g)?.at(0)?.toString() ?? '')}
-            >
-                <span style={{ cursor: 'pointer' }}>
-                    {parse(input.match(/<Term>.*?<\/Term>/g)?.at(0)?.toString() ?? '')}
-                </span>
-            </Popover>
-        ),
-    });
+            return parse(input, {
+                // eslint-disable-next-line react/no-unstable-nested-components
+                replace: () => (
+                    <Popover
+                        key={input.match(/<Term>.*?<\/Term>/g)?.at(0)?.toString()}
+                        style={keywordColoring}
+                        overlayStyle={{ width: '300px' }}
+                        content={parse(input.match(/<Desc>.*?<\/Desc>/g)?.at(0)?.toString() ?? '')}
+                    >
+                        <span style={{ cursor: 'pointer' }}>
+                            {parse(input.match(/<Term>.*?<\/Term>/g)?.at(0)?.toString() ?? '')}
+                        </span>
+                    </Popover>
+                ),
+            });
+    };
 
     return (
         <div>
-            {splittedKeywordText.map((part) => (
+            {splittedKeywordText?.map((part) => (
                 // eslint-disable-next-line react/style-prop-object
                 <span>
                     {part.includes('Popover') ? (
