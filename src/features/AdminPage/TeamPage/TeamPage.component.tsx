@@ -18,6 +18,7 @@ import useMobx, { useModalContext } from '../../../app/stores/root-store';
 import TeamMember, { TeamMemberLink } from '../../../models/team/team.model';
 
 import TeamModal from './TeamModal/TeamModal.component';
+import AdminBar from '../AdminBar.component';
 
 const LogoType = [twitter, instagram, facebook, youtube];
 const TeamPage = () => {
@@ -167,6 +168,7 @@ const TeamPage = () => {
     return (
         <div className="team-page">
             <div className="team-page-container">
+            <AdminBar />
                 <div className="container-justify-end">
                     <Button
                         className="streetcode-custom-button team-page-add-button"
