@@ -3,7 +3,10 @@ import './TeamPage.styles.scss';
 import { observer } from 'mobx-react-lite';
 import { useEffect, useState } from 'react';
 import { DeleteOutlined, EditOutlined, StarOutlined } from '@ant-design/icons';
-
+import facebook from '@assets/images/partners/facebook.png';
+import instagram from '@assets/images/partners/instagram.png';
+import twitter from '@assets/images/partners/twitter.png';
+import youtube from '@assets/images/partners/youtube.png';
 import { Button, Table } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 
@@ -12,10 +15,11 @@ import Image from '@/models/media/image.model';
 import base64ToUrl from '../../../app/common/utils/base64ToUrl.utility';
 import ImageStore from '../../../app/stores/image-store';
 import useMobx, { useModalContext } from '../../../app/stores/root-store';
-import TeamMember, { LogoType, TeamMemberLink } from '../../../models/team/team.model';
+import TeamMember, { TeamMemberLink } from '../../../models/team/team.model';
 
 import TeamModal from './TeamModal/TeamModal.component';
 
+const LogoType = [twitter, instagram, facebook, youtube];
 const TeamPage = () => {
     const { teamStore } = useMobx();
     const { modalStore } = useModalContext();
