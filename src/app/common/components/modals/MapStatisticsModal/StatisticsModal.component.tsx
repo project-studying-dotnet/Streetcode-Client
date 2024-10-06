@@ -25,7 +25,7 @@ const StatisticsModal = () => {
     useEffect(() => {
         const streetcodeId = getStreetCodeId;
         if (streetcodeId > 0 && !toponymContext.loaded) {
-            toponymContext.fetchToponymByStreetcodeId(streetcodeId);
+            //toponymContext.fetchToponymByStreetcodeId(streetcodeId);
         }
     }, [getStreetCodeId]);
     const { modalStore } = useModalContext();

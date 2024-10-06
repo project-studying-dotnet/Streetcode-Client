@@ -24,7 +24,7 @@ const MapBlock = () => {
             const streetcodeId = getStreetCodeId;
             if (streetcodeId > 0) {
                 if (!toponymContext.loaded) {
-                    toponymContext.fetchToponymByStreetcodeId(streetcodeId);
+                   // toponymContext.fetchToponymByStreetcodeId(streetcodeId);
                 }
                 StreetcodeCoordinatesApi
                     .getByStreetcodeId(streetcodeId).then((res) => setStreetcodeCoordinates(res));
