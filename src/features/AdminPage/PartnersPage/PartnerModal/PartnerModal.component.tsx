@@ -34,7 +34,6 @@ interface Props {
   isStreetcodeVisible?: boolean;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   afterSubmit?: (partner: Partner) => void;
-  onChange: (field: string, value: any) => void;
 }
 
 const PartnerModal: React.FC<Props> = observer(({
@@ -43,7 +42,6 @@ const PartnerModal: React.FC<Props> = observer(({
     setIsModalOpen,
     isStreetcodeVisible = true,
     afterSubmit,
-    onChange,
 }) => {
     const [form] = Form.useForm();
     const [urlTitleEnabled, setUrlTitleEnabled] = useState<string>('');
@@ -248,7 +246,6 @@ const PartnerModal: React.FC<Props> = observer(({
             ]);
         }
         closeAndCleanData();
-        onChange('partner', partner);
     };
 
     const selectSocialMediaOptions = [
