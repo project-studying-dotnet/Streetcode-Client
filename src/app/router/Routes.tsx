@@ -19,9 +19,13 @@ import DonatesModalComponent from '../common/components/modals/Donates/DonatesMo
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<App />}>
         <Route
+            path={`${FRONTEND_ROUTES.ADMIN.BASE}`}
+            element={<AdminPage />}
+        />
+        <Route
             path={`${FRONTEND_ROUTES.ADMIN.BASE}/:id`}
             element={<StreetcodeContent />}
-        />
+        />       
         <Route
             path={FRONTEND_ROUTES.ADMIN.FOR_FANS}
             element={<ForFansMainPage />}
@@ -40,7 +44,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="*" element={<NotFound />} />
         <Route path={FRONTEND_ROUTES.OTHER_PAGES.PARTNERS} element={<PartnersPage />} />
         <Route path={FRONTEND_ROUTES.OTHER_PAGES.CONTACT_US} element={<ContactUs />} />
-        <Route path={FRONTEND_ROUTES.OTHER_PAGES.SUPPORT_US} element={<DonatesModalComponent />} />
+        <Route path={FRONTEND_ROUTES.OTHER_PAGES.SUPPORT_US} element={<DonatesModalComponent />} /> 
         <Route index path="/:id" element={<StreetcodeContent />} />
         <Route index path={`${FRONTEND_ROUTES.OTHER_PAGES.NEWS}/:id`} element={<NewsPage />} />
     </Route>,
