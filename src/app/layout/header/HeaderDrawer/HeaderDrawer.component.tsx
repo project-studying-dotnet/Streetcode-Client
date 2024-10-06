@@ -105,8 +105,8 @@ const HeaderDrawer = () => {
                             <HeaderDrawerItem
                                 id={3}
                                 parentActive={active}
-                                text="Про нас"
-                                link={FRONTEND_ROUTES.OTHER_PAGES.ERROR404}
+                                text="Адмін-панель"
+                                link={FRONTEND_ROUTES.ADMIN.BASE}
                                 toggleState={toggle}
                             />
                             <HeaderDrawerItem
