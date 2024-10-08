@@ -65,6 +65,9 @@ const StreetcodeContent = () => {
                 if (!response[0]) {
                     navigate(`${FRONTEND_ROUTES.OTHER_PAGES.ERROR404}`, { replace: true });
                 }
+            })
+            .catch((error) => {
+                console.error('Error checking streetcode:', error);
             });
 
         const idParam = searchParams.get('qrid');

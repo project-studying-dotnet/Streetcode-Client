@@ -19,6 +19,7 @@ import Image from '@/models/media/image.model';
 import Partner, { PartnerSourceLink } from '@/models/partners/partners.model';
 
 import PartnerModal from './PartnerModal/PartnerModal.component';
+import AdminBar from '../AdminBar.component';
 
 const LogoType = [twitter, instagram, facebook, youtube];
 
@@ -155,7 +156,7 @@ const Partners:React.FC = observer(() => {
     ];
     return (
         <div className="partners-page">
-            <PageBar />
+            <AdminBar />
             <div className="partners-page-container">
                 <div className="container-justify-end">
                     <Button
@@ -180,6 +181,7 @@ const Partners:React.FC = observer(() => {
                 partnerItem={partnerToEdit}
                 isStreetcodeVisible
             />
+            
         </div>
 
     );
