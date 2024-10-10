@@ -24,4 +24,12 @@ module.exports = {
             path: `./.env`,
         }), 
       ],
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+        },
+    },
+    performance: {
+        hints: false,
+    },
 }
